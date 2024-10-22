@@ -144,9 +144,12 @@ class Page_Generation {
 					// To make sure we only get the markup of the particular block
 					// instance that we're looking for, check to see if that ID is
 					// found in the block
-					foreach( $matches as $match ) {
+					if( !empty($block_id) && isset($matches[0]) ) {
+						foreach( $matches[0] as $match ) {
 						if( false !== strpos($match, $block_id ) ) {
-							$block_markup = $match[0];
+								$block_markup = $match;
+								break; // Exit loop once the match is found
+							}
 						}
 					}
 
