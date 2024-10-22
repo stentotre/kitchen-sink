@@ -127,7 +127,7 @@ class Page_Generation {
 
 					$block_index = array_search($page_block_name, array_column($page_blocks, 'blockName'));
 					$block_instance = $page_blocks[$block_index];
-					$block_id = $block_instance['attrs']['id'];
+					$block_id = $block_instance['attrs']['id'] ?? '';
 
 					// Since serialize_block wasn't working for us, we need
 					// to regex into the post content and grab all blocks of
